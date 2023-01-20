@@ -16,12 +16,9 @@ export default function MenuItem({ to, label, handleOpen }: Props) {
 }
 
 const NavLink = styled(Link)`
-  color: #fff;
-  text-decoration: none;
   margin-left: 20px;
   &:hover {
-    color: #fff;
-    text-decoration: underline;
+    color: #ffffff7b;
   }
   &.active {
     font-weight: bold;

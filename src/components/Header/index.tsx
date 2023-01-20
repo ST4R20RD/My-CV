@@ -1,10 +1,11 @@
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 import Menu from "./Menu";
 
 export function Header() {
   return (
     <HeaderContainer>
-      <div>Logo</div>
+      <Logo to="/">Gonçalo Estrelado</Logo>
       <Menu />
     </HeaderContainer>
   );
@@ -14,8 +15,9 @@ const HeaderContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
+  font-size: 50px;
   height: 80px;
-  background-color: #34495e;
-  color: #fff;
   padding: 0 20px;
 `;
+
+const Logo = styled(Link)``;
