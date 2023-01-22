@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import MenuItem from "./MenuItem";
 
-const LINKLIST = ["Home", "About", "Contact"];
+const LINKLIST = ["Projects", "About", "Contact"];
 
 interface Props {
   setIsOpen: (value: React.SetStateAction<boolean>) => void;
@@ -27,6 +27,7 @@ export default function MenuItems({ setIsOpen, isMobile }: Props) {
 }
 
 const Container = styled.div`
+  font-size: 1rem;
   @media (max-width: 425px) {
     display: flex;
     flex-direction: column;
@@ -38,5 +39,11 @@ const Container = styled.div`
     background-color: #34495e;
     width: 80vw;
     height: 100vh;
+  }
+  @media (min-width: 990px) {
+    font-size: 2rem;
+  }
+  @media (min-width: 1325px) {
+    font-size: 3rem;
   }
 `;

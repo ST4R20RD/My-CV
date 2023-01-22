@@ -19,4 +19,6 @@ const Container = styled.div`
   background-repeat: repeat;
   background-size: cover;
   height: 100vh;
+  overflow-y: auto;
+  overflow-x: hidden;
 `;
