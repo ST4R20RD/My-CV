@@ -31,10 +31,10 @@ const HeaderContainer = styled.div`
 
 const Logo = styled(Link)`
   font-size: 1rem;
-  @media (min-width: 532px) {
+  @media (min-width: 542px) {
     font-size: 2rem;
   }
-  @media (min-width: 802px) {
+  @media (min-width: 815px) {
     font-size: 4rem;
   }
 `;
