@@ -6,12 +6,34 @@ export function Footer() {
   return (
     <Container>
       <Wrapper>
-        <Link>
-          <FiGithub />
-        </Link>
-        <Link>
-          <FaLinkedinIn />
-        </Link>
+        <Signature>
+          @{new Date().getFullYear()} -{" "}
+          <a
+            href="
+          https://www.linkedin.com/in/goncaloestrelado/
+          "
+            target="_blank"
+            rel="noreferrer"
+          >
+            Gonçalo Estrelado
+          </a>
+        </Signature>
+        <Links>
+          <Link
+            href="https://github.com/ST4R20RD"
+            target="_blank"
+            rel="noreferrer"
+          >
+            <FiGithub />
+          </Link>
+          <Link
+            href="https://www.linkedin.com/in/goncaloestrelado/"
+            target="_blank"
+            rel="noreferrer"
+          >
+            <FaLinkedinIn />
+          </Link>
+        </Links>
       </Wrapper>
     </Container>
   );
@@ -25,7 +47,13 @@ const Container = styled.footer`
 
 const Wrapper = styled.div`
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-between;
+  align-items: flex-end;
+  padding: 1rem;
+`;
+
+const Links = styled.div`
+  display: flex;
 `;
 
 const Link = styled.a`
@@ -41,3 +69,5 @@ const Link = styled.a`
     color: black;
   }
 `;
+
+const Signature = styled.span``;
