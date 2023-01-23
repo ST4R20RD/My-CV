@@ -1,4 +1,6 @@
 export const PROJECTS: Array<{
+  dateSince: string;
+  isFinished: boolean;
   image: string;
   name: string;
   subTitle: string;
@@ -9,6 +11,8 @@ export const PROJECTS: Array<{
   warning?: string;
 }> = [
   {
+    dateSince: "2022-08-26T22:38:12",
+    isFinished: false,
     image: "/images/24grind-frontPic.png",
     name: "24Grind",
     subTitle: "Every activity's more fun now with friends",
@@ -20,6 +24,8 @@ export const PROJECTS: Array<{
     warning: "BE not currently working, we are actively working on a fix.",
   },
   {
+    dateSince: "2022-11-15T16:54:46",
+    isFinished: true,
     image: "/images/tesla-clone-frontPic.png",
     name: "Tesla Website Clone",
     subTitle: "Clone of Tesla Website to test my skills",
@@ -30,6 +36,8 @@ export const PROJECTS: Array<{
     live: "https://tesla-clone-gnestrelado.netlify.app/",
   },
   {
+    dateSince: "2022-11-16T17:07:55",
+    isFinished: true,
     image: "/images/whatsgood-frontPic.png",
     name: "Whatsapp Clone",
     subTitle: "Clone of Whatsapp App Clone to test my skills",
@@ -40,6 +48,8 @@ export const PROJECTS: Array<{
     live: "https://whatsgood-gnestrelado.netlify.app/",
   },
   {
+    dateSince: "2022-04-09T11:20:48",
+    isFinished: true,
     image: "/images/nani-frontPic.png",
     name: "Nani",
     subTitle: "All of animes in one place",
@@ -60,6 +70,8 @@ export const PROJECTS: Array<{
       "Not currently working because the service where the BE was allocated turned payed in the last few month, I am working on an alternative",
   },
   {
+    dateSince: "2021-12-14T17:37:19",
+    isFinished: true,
     image: "/images/penalty-frontPic.png",
     name: "Penalty Shootout",
     subTitle: "Simple game for quick fun with friends",

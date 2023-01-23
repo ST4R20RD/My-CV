@@ -1,9 +1,12 @@
 import styled from "styled-components";
 import { MdOpenInNew } from "react-icons/md";
 import { TbBrandGithub } from "react-icons/tb";
+import { Counter } from "../Counter";
 
 interface CardProps {
   index: number;
+  dateSince: string;
+  isFinished: boolean;
   image: string;
   name: string;
   subTitle: string;
@@ -16,6 +19,8 @@ interface CardProps {
 
 export function Card({
   index,
+  dateSince,
+  isFinished,
   image,
   name,
   subTitle,
@@ -48,6 +53,7 @@ export function Card({
             return <Tech key={index}>{tech}</Tech>;
           })}
         </Techs>
+        <Counter startTime={new Date(dateSince)} isFinished={isFinished} />
       </Wrapper>
     </Container>
   );
@@ -76,7 +82,7 @@ const Container = styled.div<ContainerProps>`
 const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-around;
   height: 100%;
 `;
 

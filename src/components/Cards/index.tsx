@@ -27,6 +27,6 @@ const Wrapper = styled.div`
   flex-wrap: wrap;
   justify-content: center;
   & > * {
-    margin: 0 10px;
+    margin: 10px;
   }
 `;
