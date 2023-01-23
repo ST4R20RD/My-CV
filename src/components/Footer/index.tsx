@@ -19,11 +19,7 @@ export function Footer() {
           </a>
         </Signature>
         <Links>
-          <Link
-            href="https://github.com/ST4R20RD"
-            target="_blank"
-            rel="noreferrer"
-          >
+          <Link href="https://github.com/ST4R20RD" target="_blank" rel="noreferrer">
             <FiGithub />
           </Link>
           <Link
@@ -43,6 +39,13 @@ const Container = styled.footer`
   position: absolute;
   bottom: 0;
   width: 100%;
+  background: rgb(0, 0, 0);
+  background: linear-gradient(
+    0deg,
+    rgba(0, 0, 0, 1) 0%,
+    rgba(0, 0, 0, 0.5) 70%,
+    rgba(0, 0, 0, 0.03) 100%
+  );
 `;
 
 const Wrapper = styled.div`
