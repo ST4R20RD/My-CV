@@ -61,12 +61,8 @@ const Container = styled.div<ContainerProps>`
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 100%;
-  background: linear-gradient(
-    180deg,
-    rgba(0, 0, 0, 0) 0%,
-    rgba(0, 0, 0, 0.85) 100%
-  );
+  max-width: 900px;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.85) 100%);
   border-radius: 10px;
   & > * {
     margin: 20px;

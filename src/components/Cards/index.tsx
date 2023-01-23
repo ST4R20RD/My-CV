@@ -24,7 +24,9 @@ const Container = styled.div`
 
 const Wrapper = styled.div`
   display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  max-width: 900px;
+  flex-wrap: wrap;
+  justify-content: center;
+  & > * {
+    margin: 0 10px;
+  }
 `;
