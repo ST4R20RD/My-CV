@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { useState } from "react";
 import { MdOpenInNew } from "react-icons/md";
 import { TbBrandGithub } from "react-icons/tb";
 import { Counter } from "../Counter";
@@ -30,6 +31,7 @@ export function Card({
   live,
   warning,
 }: CardProps) {
+  const [showMoreDesc, setShowMoreDesc] = useState<boolean>(false);
   return (
     <Container index={index}>
       <SideBox>
@@ -47,7 +49,18 @@ export function Card({
         <h2>{name}</h2>
         <p>{subTitle}</p>
         {warning && <Warning>{warning}</Warning>}
-        <Description>{description}</Description>
+        <DescriptionBox>
+          <Description>
+            {description.length > 350 ? (
+              <span>{!showMoreDesc ? description.slice(0, 349) + "..." : description}</span>
+            ) : (
+              description
+            )}
+          </Description>
+          <DescriptionButton onClick={() => setShowMoreDesc(!showMoreDesc)}>
+            {!showMoreDesc ? "more" : "less"}
+          </DescriptionButton>
+        </DescriptionBox>
         <Techs>
           {techs.map((tech, index) => {
             return <Tech key={index}>{tech}</Tech>;
@@ -110,13 +123,31 @@ const Warning = styled.p`
   font-size: 0.7rem;
 `;
 
+const DescriptionBox = styled.div`
+  height: 145px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+`;
+
 const Description = styled.p`
-  max-height: 50%;
+  height: 100%;
   margin-right: 10px;
   overflow-y: hidden;
+  overflow-y: scroll;
   :hover {
-    overflow-y: overlay;
   }
+`;
+
+const DescriptionButton = styled.button`
+  background: none;
+  color: inherit;
+  border: none;
+  font: inherit;
+  cursor: pointer;
+  outline: inherit;
+  padding: 0 0.5rem;
+  color: gray;
 `;
 
 const Techs = styled.div`
