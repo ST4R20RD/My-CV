@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import styled from "styled-components";
 
 interface CountUpProps {
   startTime: Date;
@@ -23,14 +24,39 @@ export function Counter({ startTime, isFinished }: CountUpProps) {
   const hours = Math.floor((timeDifference / (1000 * 60 * 60)) % 24);
   const days = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
 
-  const formattedTime = `${days} days, ${hours} hours, ${minutes} minutes, ${seconds} seconds`;
-
   return (
-    <div>
-      <h3>
-        Time since start: {formattedTime}{" "}
-        {!isFinished ? ", still in development." : ", now finished."}
-      </h3>
-    </div>
+    <Container>
+      <Wrapper>
+        <h3>Time since start: </h3>
+        <div>
+          <p>{days}</p>
+          <p>days</p>
+        </div>
+        <div>
+          <p>{hours}</p>
+          <p>hours</p>
+        </div>
+        <div>
+          <p>{minutes}</p>
+          <p>minutes</p>
+        </div>
+        <div>
+          <p>{seconds}</p>
+          <p>seconds</p>
+        </div>
+        <div>{!isFinished ? ", still in development." : ", now finished."}</div>
+      </Wrapper>
+    </Container>
   );
 }
+
+const Container = styled.div``;
+const Wrapper = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  div {
+    text-align: center;
+    margin: 0 10px;
+  }
+`;
