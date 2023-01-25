@@ -1,6 +1,9 @@
 import { useState, useEffect } from "react";
 import styled from "styled-components";
 
+function padTo2Digits(num: number) {
+  return String(num).padStart(2, "0");
+}
 interface CountUpProps {
   startTime: Date;
   isFinished: boolean;
@@ -19,10 +22,10 @@ export function Counter({ startTime, isFinished }: CountUpProps) {
 
   const timeDifference = (currentTime.getTime() - startTime.getTime()) as number;
 
-  const seconds = Math.floor((timeDifference / 1000) % 60);
-  const minutes = Math.floor((timeDifference / 1000 / 60) % 60);
-  const hours = Math.floor((timeDifference / (1000 * 60 * 60)) % 24);
-  const days = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
+  const seconds = padTo2Digits(Math.floor((timeDifference / 1000) % 60));
+  const minutes = padTo2Digits(Math.floor((timeDifference / 1000 / 60) % 60));
+  const hours = padTo2Digits(Math.floor(timeDifference / (1000 * 60 * 60)) % 24);
+  const days = padTo2Digits(Math.floor(timeDifference / (1000 * 60 * 60 * 24)));
 
   return (
     <Container>
