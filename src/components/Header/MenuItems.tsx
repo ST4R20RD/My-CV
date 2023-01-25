@@ -1,3 +1,4 @@
+import { useLocation } from "react-router-dom";
 import styled from "styled-components";
 import MenuItem from "./MenuItem";
 
@@ -9,9 +10,17 @@ interface Props {
 }
 
 export default function MenuItems({ setIsOpen, isMobile }: Props) {
+  const location = useLocation();
+  const pathname = location.pathname.slice(1);
+
   return (
     <Container>
-      {LINKLIST.map((label) => {
+      {LINKLIST.filter((label) => {
+        if (label.toLocaleLowerCase() === pathname) {
+          return false;
+        }
+        return true;
+      }).map((label) => {
         return (
           <MenuItem
             to={label.toLowerCase()}
