@@ -1,12 +1,14 @@
-import { Outlet } from "react-router-dom";
+import { Outlet, useLocation } from "react-router-dom";
 import styled from "styled-components";
 import { Footer } from "../Footer";
 import { Header } from "../Header";
 
 export function Layout() {
+  const location = useLocation();
+  const pathname = location.pathname;
   return (
     <Container>
-      <Header />
+      {pathname === "/" ? null : <Header />}
       <Outlet />
       <Footer />
     </Container>
