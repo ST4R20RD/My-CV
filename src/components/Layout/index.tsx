@@ -8,8 +8,12 @@ export function Layout() {
   const pathname = location.pathname;
   return (
     <Container>
+      <div style={{ position: "relative", zIndex: 1 }}>
+        <div style={{ position: "absolute", top: "0", width: "100vw", height: "100vh" }}>
+          <Outlet />
+        </div>
+      </div>
       {pathname === "/" ? null : <Header />}
-      <Outlet />
       <Footer />
     </Container>
   );

@@ -16,17 +16,14 @@ const HeaderContainer = styled.div`
   align-items: center;
   justify-content: space-between;
   background-color: rgb(0, 0, 0);
-  background: linear-gradient(
-    180deg,
-    rgba(0, 0, 0, 0.85) 0%,
-    rgba(0, 0, 0, 0) 100%
-  );
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.85) 0%, rgba(0, 0, 0, 0) 100%);
 
   font-size: 50px;
   height: 80px;
   padding: 0 20px;
   position: sticky;
   top: 0;
+  z-index: 10;
 `;
 
 const Logo = styled(Link)`
