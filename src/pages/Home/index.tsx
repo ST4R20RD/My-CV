@@ -1,10 +1,13 @@
 import { Link } from "react-router-dom";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import { DownloadCV } from "./DownloadCV";
+import { useContext } from "react";
+import { ThemeContext } from "../../context/ThemeContext";
 
 const LINKLIST = ["Projects", "About", "Contact"];
 
 export function Home() {
+  const { lightMode } = useContext(ThemeContext);
   return (
     <Container>
       <Presentation>
@@ -19,8 +22,8 @@ export function Home() {
       <Navigation>
         {LINKLIST.map((label) => {
           return (
-            <NavLink to={label.toLowerCase()}>
-              <h2>{label}</h2>
+            <NavLink to={label.toLowerCase()} lightMode={lightMode}>
+              <h3>{label}</h3>
             </NavLink>
           );
         })}
@@ -60,8 +63,16 @@ const Navigation = styled.div`
   }
 `;
 
-const NavLink = styled(Link)`
+const lightThemeStyles = css`
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.85) 100%);
+`;
+
+const darkThemeStyles = css`
+  background: linear-gradient(180deg, rgba(141, 141, 141, 0) 0%, rgba(141, 141, 141, 0.2) 100%);
+`;
+
+const NavLink = styled(Link)<{ lightMode: boolean }>`
+  ${({ lightMode }) => (lightMode ? darkThemeStyles : lightThemeStyles)};
   padding: 10px 30px;
   border-radius: 30px;
-  background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.85) 100%);
 `;

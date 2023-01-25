@@ -1,11 +1,14 @@
 import { FaLinkedinIn } from "react-icons/fa";
 import { FiGithub, FiMail } from "react-icons/fi";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
+import { useContext } from "react";
+import { ThemeContext } from "../../context/ThemeContext";
 
 export function Contact() {
+  const { lightMode } = useContext(ThemeContext);
   return (
     <Container>
-      <Wrapper>
+      <Wrapper lightMode={lightMode}>
         <h1>Contact Me!</h1>
         <GreetBox>
           Thank you for visiting my portfolio! I hope you find my work interesting and relevant to
@@ -36,6 +39,14 @@ export function Contact() {
   );
 }
 
+const lightThemeStyles = css`
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.2) 100%);
+`;
+
+const darkThemeStyles = css`
+  background: linear-gradient(180deg, rgba(141, 141, 141, 0) 0%, rgba(141, 141, 141, 0.2) 100%);
+`;
+
 const Container = styled.div`
   display: flex;
   justify-content: center;
@@ -43,11 +54,11 @@ const Container = styled.div`
   height: 100%;
 `;
 
-const Wrapper = styled.div`
+const Wrapper = styled.div<{ lightMode: boolean }>`
+  ${({ lightMode }) => (lightMode ? darkThemeStyles : lightThemeStyles)}
   display: flex;
   flex-direction: column;
   align-items: center;
-  background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.85) 100%);
   padding: 30px;
   border-radius: 30px;
 `;

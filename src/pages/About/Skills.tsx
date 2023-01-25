@@ -10,13 +10,15 @@ import {
   SiTypescript,
 } from "react-icons/si";
 import { DiGit } from "react-icons/di";
-
-import styled from "styled-components";
+import styled, { css } from "styled-components";
+import { useContext } from "react";
+import { ThemeContext } from "../../context/ThemeContext";
 
 export function Skills() {
+  const { lightMode } = useContext(ThemeContext);
   return (
     <Container>
-      <Wrapper>
+      <Wrapper lightMode={lightMode}>
         <FaNodeJs />
         <IoLogoJavascript />
         <SiTypescript />
@@ -38,8 +40,17 @@ export function Skills() {
   );
 }
 
+const lightThemeStyles = css`
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.2) 100%);
+`;
+
+const darkThemeStyles = css`
+  background: linear-gradient(180deg, rgba(141, 141, 141, 0) 0%, rgba(141, 141, 141, 0.2) 100%);
+`;
+
 const Container = styled.div``;
-const Wrapper = styled.div`
+const Wrapper = styled.div<{ lightMode: boolean }>`
+  ${({ lightMode }) => (lightMode ? darkThemeStyles : lightThemeStyles)}
   height: 100%;
   border-radius: 30px;
   display: flex;
@@ -48,7 +59,7 @@ const Wrapper = styled.div`
   flex-wrap: wrap;
   max-width: 300px;
   font-size: 3rem;
-  background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.85) 100%);
+
   & > * {
     margin: 10px;
   }

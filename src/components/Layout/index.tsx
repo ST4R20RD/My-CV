@@ -1,17 +1,20 @@
 import { Outlet, useLocation } from "react-router-dom";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import { Footer } from "../Footer";
 import { Header } from "../Header";
+import { useContext } from "react";
+import { ThemeContext } from "../../context/ThemeContext";
 
 export function Layout() {
   const location = useLocation();
   const pathname = location.pathname;
+  const { lightMode } = useContext(ThemeContext);
   return (
-    <Container>
+    <Container lightMode={lightMode}>
       <div style={{ position: "relative", zIndex: 1 }}>
-        <div style={{ position: "absolute", top: "0", width: "100vw", height: "100vh" }}>
+        <OutletWrapper>
           <Outlet />
-        </div>
+        </OutletWrapper>
       </div>
       {pathname === "/" ? null : <Header />}
       <Footer />
@@ -19,9 +22,30 @@ export function Layout() {
   );
 }
 
-const Container = styled.div`
+const lightThemeStyles = css`
+  background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.4)),
+    url("/images/block-texture-white.png");
+`;
+
+const darkThemeStyles = css`
   background-image: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)),
     url("/images/block-texture.png");
+`;
+
+const OutletWrapper = styled.div`
+  position: absolute;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+`;
+
+const Container = styled.div<{ lightMode: boolean }>`
+  ${({ lightMode }) => (lightMode ? darkThemeStyles : lightThemeStyles)}
+  ${OutletWrapper} {
+    ${({ lightMode }) => css`
+      color: ${lightMode ? "white" : "black"};
+    `}
+  }
   background-repeat: repeat;
   background-size: cover;
   height: 100vh;

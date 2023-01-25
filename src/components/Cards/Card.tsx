@@ -1,8 +1,10 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import { useState } from "react";
 import { MdOpenInNew } from "react-icons/md";
 import { TbBrandGithub } from "react-icons/tb";
 import { Counter } from "../Counter";
+import { useContext } from "react";
+import { ThemeContext } from "../../context/ThemeContext";
 
 interface CardProps {
   index: number;
@@ -32,8 +34,9 @@ export function Card({
   warning,
 }: CardProps) {
   const [showMoreDesc, setShowMoreDesc] = useState<boolean>(false);
+  const { lightMode } = useContext(ThemeContext);
   return (
-    <Container index={index}>
+    <Container index={index} lightMode={lightMode}>
       <SideBox>
         <Image src={image} />
         <Links>
@@ -74,14 +77,69 @@ export function Card({
 
 type ContainerProps = {
   index: number;
+  lightMode: boolean;
 };
 
+const Techs = styled.div`
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  & > * {
+    margin: 0 20px;
+  }
+`;
+
+const Tech = styled.p`
+  color: gray;
+`;
+
+const DescriptionBox = styled.div`
+  height: 145px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+`;
+
+const Description = styled.p`
+  height: 100%;
+  margin-right: 10px;
+  overflow-y: hidden;
+  overflow-y: scroll;
+  :hover {
+  }
+`;
+
+const DescriptionButton = styled.button`
+  background: none;
+  color: inherit;
+  border: none;
+  font: inherit;
+  cursor: pointer;
+  outline: inherit;
+  padding: 0 0.5rem;
+  color: gray;
+`;
+
+const lightThemeStyles = css`
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.2) 100%);
+  ${Tech} {
+    color: rgb(13, 16, 23);
+  }
+  ${DescriptionButton} {
+    color: rgb(200, 200, 200);
+  }
+`;
+
+const darkThemeStyles = css`
+  background: linear-gradient(180deg, rgba(141, 141, 141, 0) 0%, rgba(141, 141, 141, 0.2) 100%);
+`;
+
 const Container = styled.div<ContainerProps>`
+  ${({ lightMode }) => (lightMode ? darkThemeStyles : lightThemeStyles)}
   display: flex;
   flex-direction: column;
   align-items: center;
   max-width: 900px;
-  background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.85) 100%);
   border-radius: 10px;
   & > * {
     margin: 20px;
@@ -119,46 +177,6 @@ const Links = styled.div`
 `;
 
 const Warning = styled.p`
-  color: red;
-  font-size: 0.7rem;
-`;
-
-const DescriptionBox = styled.div`
-  height: 145px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-`;
-
-const Description = styled.p`
-  height: 100%;
-  margin-right: 10px;
-  overflow-y: hidden;
-  overflow-y: scroll;
-  :hover {
-  }
-`;
-
-const DescriptionButton = styled.button`
-  background: none;
-  color: inherit;
-  border: none;
-  font: inherit;
-  cursor: pointer;
-  outline: inherit;
-  padding: 0 0.5rem;
-  color: gray;
-`;
-
-const Techs = styled.div`
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  & > * {
-    margin: 0 20px;
-  }
-`;
-
-const Tech = styled.p`
-  color: gray;
+  color: #c20000;
+  font-size: 0.8rem;
 `;

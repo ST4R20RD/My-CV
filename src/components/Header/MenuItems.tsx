@@ -1,6 +1,9 @@
 import { useLocation } from "react-router-dom";
 import styled from "styled-components";
 import MenuItem from "./MenuItem";
+import { Toggle } from "./Toggle";
+import { useContext } from "react";
+import { ThemeContext } from "../../context/ThemeContext";
 
 const LINKLIST = ["Projects", "About", "Contact"];
 
@@ -12,6 +15,7 @@ interface Props {
 export default function MenuItems({ setIsOpen, isMobile }: Props) {
   const location = useLocation();
   const pathname = location.pathname.slice(1);
+  const { lightMode, toggleTheme } = useContext(ThemeContext);
 
   return (
     <Container>
@@ -31,12 +35,18 @@ export default function MenuItems({ setIsOpen, isMobile }: Props) {
           />
         );
       })}
+      <Toggle checked={lightMode} onToggle={toggleTheme} />
     </Container>
   );
 }
 
 const Container = styled.div`
+  display: flex;
+  align-items: center;
   font-size: 1rem;
+  & > * {
+    margin: 0 30px 0 0;
+  }
   @media (max-width: 425px) {
     display: flex;
     flex-direction: column;
