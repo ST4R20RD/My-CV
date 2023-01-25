@@ -6,6 +6,11 @@ export function Cards() {
   return (
     <Container>
       <h1>Projects</h1>
+      <TextBox>
+        Welcome to my project page! Here you'll find a selection of my most recent and notable work.
+        <br /> Take a look around and let me know what you think. I'd be happy to discuss any of the
+        projects in more detail.
+      </TextBox>
       <Wrapper>
         {PROJECTS.map((project, index) => {
           return <Card key={index} index={index} {...project} />;
@@ -20,6 +25,15 @@ const Container = styled.div`
   flex-direction: column;
   align-items: center;
   padding: 20px;
+  h1 {
+    margin-top: 30px;
+  }
+`;
+
+const TextBox = styled.p`
+  text-align: center;
+  max-width: 820px;
+  margin-bottom: 20px;
 `;
 
 const Wrapper = styled.div`
