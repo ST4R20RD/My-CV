@@ -28,21 +28,23 @@ export function Counter({ startTime, isFinished }: CountUpProps) {
     <Container>
       <Wrapper>
         <h3>Time since start: </h3>
-        <div>
-          <p>{days}</p>
-          <p>days</p>
-        </div>
-        <div>
-          <p>{hours}</p>
-          <p>hours</p>
-        </div>
-        <div>
-          <p>{minutes}</p>
-          <p>minutes</p>
-        </div>
-        <div>
-          <p>{seconds}</p>
-          <p>seconds</p>
+        <div style={{ display: "flex" }}>
+          <div>
+            <p>{days}</p>
+            <p>days</p>
+          </div>
+          <div>
+            <p>{hours}</p>
+            <p>hours</p>
+          </div>
+          <div>
+            <p>{minutes}</p>
+            <p>minutes</p>
+          </div>
+          <div>
+            <p>{seconds}</p>
+            <p>seconds</p>
+          </div>
         </div>
         <div>{!isFinished ? ", still in development." : ", now finished."}</div>
       </Wrapper>
@@ -53,10 +55,14 @@ export function Counter({ startTime, isFinished }: CountUpProps) {
 const Container = styled.div``;
 const Wrapper = styled.div`
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   div {
     text-align: center;
     margin: 0 10px;
+  }
+  @media (min-width: 805px) {
+    flex-direction: row;
   }
 `;
