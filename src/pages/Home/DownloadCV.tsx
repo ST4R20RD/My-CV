@@ -7,7 +7,7 @@ import { ThemeContext } from "../../context/ThemeContext";
 export function DownloadCV() {
   const { lightMode } = useContext(ThemeContext);
   const onButtonClick = () => {
-    fetch("CV-21012023.pdf").then((response) => {
+    fetch("CV_06102023.pdf").then((response) => {
       response.blob().then((blob) => {
         const fileURL = window.URL.createObjectURL(blob);
         let alink = document.createElement("a");

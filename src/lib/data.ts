@@ -11,6 +11,17 @@ export const PROJECTS: Array<{
   warning?: string;
 }> = [
   {
+    dateSince: "2023-09-25T22:38:12",
+    isFinished: false,
+    image: "/images/ge-shop.png",
+    name: "GE SHOP",
+    subTitle: "E-commerce website",
+    description: "Shop with the best products available today!",
+    techs: ["ReactJS", "Typescript", "Tailwind", "Styled-Components", "Axios", "React-router-dom"],
+    github: "https://github.com/ST4R20RD/ge-shop",
+    live: "https://ge-shop.netlify.app/",
+  },
+  {
     dateSince: "2022-08-26T22:38:12",
     isFinished: false,
     image: "/images/24grind-frontPic.png",
