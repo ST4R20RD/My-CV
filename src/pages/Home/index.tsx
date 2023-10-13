@@ -75,4 +75,5 @@ const NavLink = styled(Link)<{ lightMode: boolean }>`
   ${({ lightMode }) => (lightMode ? darkThemeStyles : lightThemeStyles)};
   padding: 10px 30px;
   border-radius: 30px;
+  margin: 5px;
 `;

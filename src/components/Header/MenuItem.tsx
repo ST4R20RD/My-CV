@@ -16,7 +16,7 @@ export default function MenuItem({ to, label, handleOpen }: Props) {
 }
 
 const NavLink = styled(Link)`
-  margin-left: 20px;
+  margin: 0 30px;
   &:hover {
     color: #ffffff7b;
   }
@@ -25,7 +25,6 @@ const NavLink = styled(Link)`
     color: yellow;
   }
   @media (max-width: 425px) {
-    font-size: 5rem;
-    margin-left: 0;
+    font-size: 4rem;
   }
 `;

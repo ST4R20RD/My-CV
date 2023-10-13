@@ -44,9 +44,6 @@ const Container = styled.div`
   display: flex;
   align-items: center;
   font-size: 1rem;
-  & > * {
-    margin: 0 30px 0 0;
-  }
   @media (max-width: 425px) {
     display: flex;
     flex-direction: column;
