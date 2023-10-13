@@ -54,7 +54,7 @@ interface ContainerProps {
 
 const Container = styled.footer<ContainerProps>`
   ${({ lightMode }) => (lightMode ? darkThemeStyles : lightThemeStyles)}
-  position: absolute;
+  position: fixed;
   bottom: 0;
   width: 100%;
   z-index: 10;

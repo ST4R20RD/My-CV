@@ -11,12 +11,10 @@ export function Layout() {
   const { lightMode } = useContext(ThemeContext);
   return (
     <Container lightMode={lightMode}>
-      <div style={{ position: "relative", zIndex: 1 }}>
-        <OutletWrapper>
-          <Outlet />
-        </OutletWrapper>
-      </div>
       {pathname === "/" ? null : <Header />}
+      <OutletWrapper>
+        <Outlet />
+      </OutletWrapper>
       <Footer />
     </Container>
   );
@@ -32,14 +30,17 @@ const darkThemeStyles = css`
     url("/images/block-texture.png");
 `;
 
-const OutletWrapper = styled.div`
+const OutletWrapper = styled.main`
+  display: flex;
+  justify-content: center;
+  align-items: center;
   position: absolute;
   top: 0;
   min-width: 100vw;
   min-height: 100vh;
 `;
 
-const Container = styled.div<{ lightMode: boolean }>`
+const Container = styled.section<{ lightMode: boolean }>`
   ${({ lightMode }) => (lightMode ? darkThemeStyles : lightThemeStyles)}
   ${OutletWrapper} {
     ${({ lightMode }) => css`

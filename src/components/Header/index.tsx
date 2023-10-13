@@ -29,7 +29,7 @@ const darkThemeStyles = css`
   background: linear-gradient(180deg, rgba(0, 0, 0, 0.85) 0%, rgba(0, 0, 0, 0) 100%);
 `;
 
-const HeaderContainer = styled.div<{ lightMode: boolean }>`
+const HeaderContainer = styled.nav<{ lightMode: boolean }>`
   ${({ lightMode }) => (lightMode ? darkThemeStyles : lightThemeStyles)}
   display: flex;
   align-items: center;
