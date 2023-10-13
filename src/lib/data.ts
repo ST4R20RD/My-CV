@@ -16,7 +16,7 @@ export const PROJECTS: Array<{
     image: "/images/ge-shop.png",
     name: "GE SHOP",
     subTitle: "E-commerce website",
-    description: "Shop with the best products available today!",
+    description: "Shop with the best products available today! My e-commerce project focuses on creating a user-friendly interface and ensuring a reliable platform through performance optimization and regular updates.",
     techs: ["ReactJS", "Typescript", "Tailwind", "Styled-Components", "Axios", "React-router-dom"],
     github: "https://github.com/ST4R20RD/ge-shop",
     live: "https://ge-shop.netlify.app/",
