@@ -1,5 +1,5 @@
 import { useLocation } from "react-router-dom";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import MenuItem from "./MenuItem";
 import { Toggle } from "./Toggle";
 import { useContext } from "react";
@@ -18,7 +18,7 @@ export default function MenuItems({ setIsOpen, isMobile }: Props) {
   const { lightMode, toggleTheme } = useContext(ThemeContext);
 
   return (
-    <Container>
+    <Container lightMode={lightMode}>
       {LINKLIST.filter((label) => {
         if (label.toLocaleLowerCase() === pathname) {
           return false;
@@ -40,7 +40,29 @@ export default function MenuItems({ setIsOpen, isMobile }: Props) {
   );
 }
 
-const Container = styled.div`
+const darkThemeStyles = css`
+  background-image: linear-gradient(
+    to right,
+    rgba(0, 0, 0, 0),
+    #191919e6,
+    #191919,
+    #191919,
+    #191919
+  );
+`;
+
+const lightThemeStyles = css`
+  background-image: linear-gradient(
+    to right,
+    rgba(0, 0, 0, 0),
+    #a3a3a3e6,
+    #a3a3a3,
+    #a3a3a3,
+    #a3a3a3
+  );
+`;
+
+const Container = styled.div<{ lightMode: boolean }>`
   display: flex;
   align-items: center;
   font-size: 1rem;
@@ -52,9 +74,9 @@ const Container = styled.div`
     position: absolute;
     top: 0;
     right: 0;
-    background-color: #34495e;
     width: 80vw;
     height: 100vh;
+    ${({ lightMode }) => (lightMode ? darkThemeStyles : lightThemeStyles)}
   }
   @media (min-width: 990px) {
     font-size: 2rem;
