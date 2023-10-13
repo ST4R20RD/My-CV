@@ -8,7 +8,7 @@ interface IToggleProps {
 
 export function Toggle({ checked, onToggle }: IToggleProps) {
   return (
-    <ToggleContainer onClick={onToggle}>{checked ? <BsMoonFill /> : <BsSun />}</ToggleContainer>
+    <ToggleContainer onClick={onToggle}>{!checked ? <BsMoonFill /> : <BsSun />}</ToggleContainer>
   );
 }
 
