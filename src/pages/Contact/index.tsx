@@ -9,12 +9,14 @@ export function Contact() {
   return (
     <Container>
       <Wrapper lightMode={lightMode}>
-        <h1>Contact Me!</h1>
+        <h2>Contact Me!</h2>
         <GreetBox>
-          Thank you for visiting my portfolio! I hope you find my work interesting and relevant to
-          your needs. <br />
-          If you have any questions or would like to discuss a potential project, please don't
-          hesitate to contact me. <br />I look forward to hearing from you!
+          Thank you for exploring my portfolio!
+          <br />
+          If you have any inquiries or want to discuss potential projects, <br />
+          please feel free to reach out.
+          <br />
+          I'm excited to hear from you!
         </GreetBox>
         <Links>
           <Link href="https://github.com/ST4R20RD" target="_blank" rel="noreferrer">
@@ -52,6 +54,9 @@ const Container = styled.div`
   justify-content: center;
   align-items: center;
   height: 100%;
+  @media (max-width: 768px) {
+    font-size: small;
+  }
 `;
 
 const Wrapper = styled.div<{ lightMode: boolean }>`
@@ -74,7 +79,6 @@ const Links = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  max-width: 500px;
 `;
 
 const Link = styled.a`
@@ -89,5 +93,8 @@ const Link = styled.a`
   color: black;
   svg {
     margin-right: 10px;
+  }
+  @media (max-width: 768px) {
+    font-size: small;
   }
 `;
