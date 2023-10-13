@@ -24,16 +24,20 @@ const lightThemeStyles = css`
   position: absolute;
   top: 0;
   width: 100%;
-  background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.4)),
-    url("/images/block-texture-white.png");
+  background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.4)),
+    url("/images/block-texture-white.gif");
+  background-size: 100%;
+  background-repeat: repeat;
 `;
 
 const darkThemeStyles = css`
   position: absolute;
   top: 0;
   width: 100%;
-  background-image: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)),
-    url("/images/block-texture.png");
+  background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)),
+    url("/images/block-texture.gif");
+  background-size: 100%;
+  background-repeat: repeat;
 `;
 
 const OutletWrapper = styled.main`
