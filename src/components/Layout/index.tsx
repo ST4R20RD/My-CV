@@ -35,8 +35,8 @@ const darkThemeStyles = css`
 const OutletWrapper = styled.div`
   position: absolute;
   top: 0;
-  width: 100vw;
-  height: 100vh;
+  min-width: 100vw;
+  min-height: 100vh;
 `;
 
 const Container = styled.div<{ lightMode: boolean }>`
