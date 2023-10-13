@@ -21,11 +21,17 @@ export function Layout() {
 }
 
 const lightThemeStyles = css`
+  position: absolute;
+  top: 0;
+  width: 100%;
   background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.4)),
     url("/images/block-texture-white.png");
 `;
 
 const darkThemeStyles = css`
+  position: absolute;
+  top: 0;
+  width: 100%;
   background-image: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)),
     url("/images/block-texture.png");
 `;
