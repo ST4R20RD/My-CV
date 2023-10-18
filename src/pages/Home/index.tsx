@@ -33,11 +33,7 @@ export function Home() {
         <h3>Hi, I am</h3>
         <Name>Gonçalo</Name>
         <JobPosition>
-          <h2>Junior Web Developer</h2>
-          <p>
-            Thank you for visiting my page,
-            <br /> check out more about me and my work
-          </p>
+          <h3>Junior Web Developer</h3>
         </JobPosition>
       </Presentation>
       <Navigation>
