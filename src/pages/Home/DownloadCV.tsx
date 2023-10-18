@@ -1,26 +1,19 @@
-import React from "react";
-import { FaDownload } from "react-icons/fa";
 import styled, { css, keyframes } from "styled-components";
 import { useContext } from "react";
 import { ThemeContext } from "../../context/ThemeContext";
+import { AiFillFilePdf } from "react-icons/ai";
 
 export function DownloadCV() {
   const { lightMode } = useContext(ThemeContext);
-  const onButtonClick = () => {
-    fetch("CV_06102023.pdf").then((response) => {
-      response.blob().then((blob) => {
-        const fileURL = window.URL.createObjectURL(blob);
-        let alink = document.createElement("a");
-        alink.href = fileURL;
-        alink.download = "CV-Gonçalo-Estrelado.pdf";
-        alink.click();
-      });
-    });
-  };
   return (
-    <Button onClick={onButtonClick} lightMode={lightMode}>
-      <FaDownload />
-      Download CV
+    <Button
+      href="https://drive.google.com/file/d/1g5aKBIfFTY7h_cD5XLW4kq9agnZyg3-U/view"
+      target="_blank"
+      rel="noreferrer"
+      lightMode={lightMode}
+    >
+      <AiFillFilePdf />
+      Curriculum Vitae
     </Button>
   );
 }
@@ -44,14 +37,17 @@ const slideInBottom = keyframes`
   }
 `;
 
-const Button = styled.button<{ lightMode: boolean }>`
+const Button = styled.a<{ lightMode: boolean }>`
   ${({ lightMode }) => (lightMode ? darkThemeStyles : lightThemeStyles)}
   color: white;
   border: none;
-  padding: 10px 30px;
+  padding: 6px 30px;
   font-size: 2rem;
   border-radius: 30px;
   margin-top: 10px;
+  font-style: italic;
+  display: flex;
+  align-items: center;
   svg {
     margin-right: 13px;
   }
