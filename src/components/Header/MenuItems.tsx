@@ -1,5 +1,5 @@
 import { useLocation } from "react-router-dom";
-import styled, { css } from "styled-components";
+import styled, { css, keyframes } from "styled-components";
 import MenuItem from "./MenuItem";
 import { Toggle } from "./Toggle";
 import { useContext } from "react";
@@ -8,17 +8,18 @@ import { ThemeContext } from "../../context/ThemeContext";
 const LINKLIST = ["Projects", "About", "Contact"];
 
 interface Props {
+  isOpen: boolean;
   setIsOpen: (value: React.SetStateAction<boolean>) => void;
   isMobile: boolean;
 }
 
-export default function MenuItems({ setIsOpen, isMobile }: Props) {
+export default function MenuItems({ isOpen, setIsOpen, isMobile }: Props) {
   const location = useLocation();
   const pathname = location.pathname.slice(1);
   const { lightMode, toggleTheme } = useContext(ThemeContext);
 
   return (
-    <Container lightMode={lightMode}>
+    <Container lightMode={lightMode} isOpen={isOpen}>
       {LINKLIST.filter((label) => {
         if (label.toLocaleLowerCase() === pathname) {
           return false;
@@ -62,10 +63,38 @@ const lightThemeStyles = css`
   );
 `;
 
-const Container = styled.div<{ lightMode: boolean }>`
+const slideInRight = keyframes`
+  0% {
+    transform: translateX(1000px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+`;
+
+const slideOutRight = keyframes`
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(100%);
+  }
+`;
+
+const Container = styled.div<{ lightMode: boolean; isOpen: boolean }>`
   display: flex;
   align-items: center;
   font-size: 1rem;
+  ${(props) =>
+    props.isOpen
+      ? css`
+          animation: ${slideInRight} 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+        `
+      : css`
+          animation: ${slideOutRight} 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+        `}
   @media (max-width: 425px) {
     display: flex;
     flex-direction: column;

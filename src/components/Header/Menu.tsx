@@ -17,7 +17,7 @@ export default function Menu() {
       <MenuButton onClick={() => setIsOpen(!isOpen)}>
         <FaBars />
       </MenuButton>
-      {isOpen && <MenuItems setIsOpen={setIsOpen} isMobile={isMobile} />}
+      <MenuItems isOpen={isOpen} setIsOpen={setIsOpen} isMobile={isMobile} />
     </MenuContainer>
   );
 }
