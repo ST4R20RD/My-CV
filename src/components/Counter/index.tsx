@@ -49,7 +49,7 @@ export function Counter({ startTime, isFinished }: CountUpProps) {
             <p>seconds</p>
           </div>
         </div>
-        <div>{!isFinished ? ", still in development." : ", now finished."}</div>
+        <h3>{!isFinished ? ", still in development." : ", now finished."}</h3>
       </Wrapper>
     </Container>
   );
@@ -64,6 +64,9 @@ const Wrapper = styled.div`
   div {
     text-align: center;
     margin: 0 10px;
+  }
+  h3 {
+    font-size: small;
   }
   @media (min-width: 805px) {
     flex-direction: row;

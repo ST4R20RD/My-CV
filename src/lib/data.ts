@@ -16,12 +16,13 @@ export const PROJECTS: Array<{
     image: "/images/ge-shop.png",
     name: "GE SHOP",
     subTitle: "E-commerce website",
-    description: "Shop with the best products available today! My e-commerce project focuses on creating a user-friendly interface and ensuring a reliable platform through performance optimization and regular updates.",
+    description:
+      "Shop with the best products available today! My e-commerce project focuses on creating a user-friendly interface and ensuring a reliable platform through performance optimization and regular updates.",
     techs: ["ReactJS", "Typescript", "Tailwind", "Styled-Components", "Axios", "React-router-dom"],
     github: "https://github.com/ST4R20RD/ge-shop",
     live: "https://ge-shop.netlify.app/",
   },
-  {
+  /* {
     dateSince: "2022-08-26T22:38:12",
     isFinished: false,
     image: "/images/24grind-frontPic.png",
@@ -33,7 +34,7 @@ export const PROJECTS: Array<{
     github: "https://github.com/ST4R20RD/24Grind-frontend",
     live: "https://24grind.netlify.app/",
     warning: "BE not currently working, we are actively working on a fix.",
-  },
+  }, */
   {
     dateSince: "2022-11-15T16:54:46",
     isFinished: true,
@@ -80,7 +81,7 @@ export const PROJECTS: Array<{
     warning:
       "Not currently working because the service where the BE was allocated turned payed in the last few month, I am working on an alternative",
   },
-  {
+  /* {
     dateSince: "2021-12-14T17:37:19",
     isFinished: true,
     image: "/images/penalty-frontPic.png",
@@ -92,4 +93,5 @@ export const PROJECTS: Array<{
     github: "https://github.com/ST4R20RD/Penalty-Shootout",
     live: "https://penalty-shootout.netlify.app/",
   },
+ */
 ];

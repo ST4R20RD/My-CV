@@ -39,38 +39,40 @@ export function Card({
     <Container index={index} lightMode={lightMode}>
       <SideBox>
         <Image src={image} />
-        <Links>
-          <a href={github} target="_blank" rel="noreferrer">
-            <TbBrandGithub className="mx-4" />
-          </a>
-          <a href={live} target="_blank" rel="noreferrer">
-            <MdOpenInNew className="mx-4" />
-          </a>
-        </Links>
       </SideBox>
       <Wrapper>
         <h2>{name}</h2>
-        <p>{subTitle}</p>
-        {warning && <Warning>{warning}</Warning>}
-        <DescriptionBox>
-          <Description>
-            {description.length > 350 ? (
-              <span>{!showMoreDesc ? description.slice(0, 349) + "..." : description}</span>
-            ) : (
-              description
-            )}
-          </Description>
-          <DescriptionButton onClick={() => setShowMoreDesc(!showMoreDesc)}>
-            {!showMoreDesc ? "more" : "less"}
-          </DescriptionButton>
-        </DescriptionBox>
         <Techs>
           {techs.map((tech, index) => {
             return <Tech key={index}>{tech}</Tech>;
           })}
         </Techs>
-        <Counter startTime={new Date(dateSince)} isFinished={isFinished} />
+        <p>{subTitle}</p>
+        {warning && <Warning>{warning}</Warning>}
+        <CenterBox>
+          <DescriptionBox>
+            <Description>
+              {description.length > 350 ? (
+                <span>{!showMoreDesc ? description.slice(0, 349) + "..." : description}</span>
+              ) : (
+                description
+              )}
+            </Description>
+            <DescriptionButton onClick={() => setShowMoreDesc(!showMoreDesc)}>
+              {!showMoreDesc ? "more" : "less"}
+            </DescriptionButton>
+          </DescriptionBox>
+          <Counter startTime={new Date(dateSince)} isFinished={isFinished} />
+        </CenterBox>
       </Wrapper>
+      <Links>
+        <a href={github} target="_blank" rel="noreferrer">
+          <TbBrandGithub className="mx-4" />
+        </a>
+        <a href={live} target="_blank" rel="noreferrer">
+          <MdOpenInNew className="mx-4" />
+        </a>
+      </Links>
     </Container>
   );
 }
@@ -85,7 +87,10 @@ const Techs = styled.div`
   justify-content: center;
   flex-wrap: wrap;
   & > * {
-    margin: 0 20px;
+    margin: 0 10px;
+  }
+  @media (max-width: 980px) {
+    font-size: calc(5px + min(2vw, 12px));
   }
 `;
 
@@ -98,14 +103,21 @@ const DescriptionBox = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
+
+  @media (max-width: 980px) {
+    width: 60vw;
+    padding-right: 10px;
+  }
 `;
 
 const Description = styled.p`
   height: 100%;
+  width: 100%;
   margin-right: 10px;
   overflow-y: hidden;
   overflow-y: scroll;
-  :hover {
+  @media (max-width: 980px) {
+    font-size: calc(5px + min(1.8vw, 20px));
   }
 `;
 
@@ -141,12 +153,14 @@ const Container = styled.div<ContainerProps>`
   align-items: center;
   max-width: 900px;
   border-radius: 10px;
-  & > * {
-    margin: 20px;
-  }
-  @media (min-width: 660px) {
+  @media (min-width: 980px) {
     flex-direction: ${({ index }) => (index % 2 === 0 ? "row" : "row-reverse")};
     height: 50vh;
+  }
+  @media (max-width: 980px) {
+    align-items: flex-start;
+    max-width: 600px;
+    width: 65vw;
   }
 `;
 
@@ -155,18 +169,49 @@ const Wrapper = styled.div`
   flex-direction: column;
   justify-content: space-around;
   height: 100%;
-`;
-
-const Image = styled.img`
-  max-height: 200px;
-  height: 60%;
-  max-width: 100px;
-  object-fit: cover;
+  padding: 1rem;
+  @media (max-width: 980px) {
+    h2 {
+      font-size: 5vw;
+    }
+    & > * {
+      margin: 10px 0;
+    }
+  }
 `;
 
 const SideBox = styled.div`
   display: flex;
   flex-direction: column;
+  padding: 1rem;
+  max-width: 180px;
+  @media (max-width: 980px) {
+    padding: 0;
+  }
+`;
+
+const CenterBox = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  max-width: 620px;
+  @media (max-width: 980px) {
+    max-width: 200px;
+    font-size: calc(5px + min(1vw, 20px));
+  }
+`;
+
+const Image = styled.img`
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 10px;
+  @media (max-width: 980px) {
+    width: 65vw;
+    height: 110px;
+    max-width: 600px;
+    object-position: 50% -0%;
+  }
 `;
 
 const Links = styled.div`
@@ -174,6 +219,12 @@ const Links = styled.div`
   justify-content: space-around;
   margin-top: 10px;
   font-size: 2.5rem;
+  & > * {
+    padding: 0.5rem 1rem;
+  }
+  @media (min-width: 980px) {
+    flex-direction: column;
+  }
 `;
 
 const Warning = styled.p`
