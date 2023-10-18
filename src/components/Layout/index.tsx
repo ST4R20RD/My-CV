@@ -34,7 +34,7 @@ const darkThemeStyles = css`
   position: absolute;
   top: 0;
   width: 100%;
-  background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)),
+  background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
     url("/images/block-texture.gif");
   background-size: 100%;
   background-repeat: repeat;
