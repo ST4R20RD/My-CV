@@ -14,7 +14,7 @@ interface CardProps {
   name: string;
   subTitle: string;
   description: string;
-  techs: Array<string>;
+  techs: Array<{ name: string; color: string; link: string }>;
   github: string;
   live: string;
   warning?: string;
@@ -47,9 +47,21 @@ export function Card({
         <CenterBox>
           <h2>{name}</h2>
           <Techs>
+            {"{"}
             {techs.map((tech, index) => {
-              return <Tech key={index}>{tech}</Tech>;
+              return (
+                <Tech
+                  key={index}
+                  style={{ color: tech.color }}
+                  href={tech.link}
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  {tech.name} ,
+                </Tech>
+              );
             })}
+            {"}"}
           </Techs>
           <p>{subTitle}</p>
           {warning && <Warning>{warning}</Warning>}
@@ -154,17 +166,17 @@ const CenterBox = styled.div`
 
 const Techs = styled.div`
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   flex-wrap: wrap;
   & > * {
-    margin: 0 10px;
+    margin: 0 5px;
   }
   @media (max-width: 980px) {
     font-size: calc(5px + min(2vw, 12px));
   }
 `;
 
-const Tech = styled.p`
+const Tech = styled.a`
   color: gray;
 `;
 

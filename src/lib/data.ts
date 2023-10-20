@@ -5,7 +5,7 @@ export const PROJECTS: Array<{
   name: string;
   subTitle: string;
   description: string;
-  techs: Array<string>;
+  techs: Array<{ name: string; color: string; link: string }>;
   github: string;
   live: string;
   warning?: string;
@@ -18,7 +18,38 @@ export const PROJECTS: Array<{
     subTitle: "E-commerce website",
     description:
       "Shop with the best products available today! As a Front End Developer, I'm devoted to creating a user-friendly interface and ensuring a reliable platform through performance optimization. This project is a personal quest for knowledge and skill development, aiming to explore the intricacies of web development and e-commerce. It's all about hands-on learning, experimenting with the latest technologies, and fine-tuning my front-end development skills. Join me as we delve into the world of online shopping, not just as consumers, but as developers eager to grow and master our craft!",
-    techs: ["ReactJS", "Typescript", "Tailwind", "Styled-Components", "Axios", "React-router-dom"],
+    techs: [
+      {
+        name: "ReactJS",
+        color: "#61DAFB",
+        link: "https://reactjs.org/",
+      },
+      {
+        name: "Typescript",
+        color: "#3178C6",
+        link: "https://www.typescriptlang.org/",
+      },
+      {
+        name: "Tailwind",
+        color: "#38B2AC",
+        link: "https://tailwindcss.com/",
+      },
+      {
+        name: "Styled-Components",
+        color: "#DB7093",
+        link: "https://styled-components.com/",
+      },
+      {
+        name: "Axios",
+        color: "#671DDF",
+        link: "https://axios-http.com/",
+      },
+      {
+        name: "React-router-dom",
+        color: "#CA4245",
+        link: "https://reactrouter.com/web/guides/quick-start",
+      },
+    ],
     github: "https://github.com/ST4R20RD/ge-shop",
     live: "https://ge-shop.netlify.app/",
   },
@@ -43,7 +74,28 @@ export const PROJECTS: Array<{
     subTitle: "Clone of Tesla Website to test my skills",
     description:
       "I have taken on the challenge of creating a responsive clone of the Tesla website to test and showcase my skills as a Front End Developer. This project involves replicating the design, layout, and functionality of the official Tesla website, while also ensuring that it is optimized for use on a wide range of devices, including desktop computers, laptops, tablets, and smartphones. The website is built using the latest Front End Development technologies and best practices to ensure fast loading times, user-friendly navigation, and accessibility to all users. Additionally, The website will include all of the same information and resources that are available on the official Tesla website. It was a great opportunity to test my skills in developing a web-responsive website and my ability to replicate a complex website.",
-    techs: ["ReactJS", "ReduxJS", "StyledComponents", "MaterialUI"],
+    techs: [
+      {
+        name: "ReactJS",
+        color: "#61DAFB",
+        link: "https://reactjs.org/",
+      },
+      {
+        name: "ReduxJS",
+        color: "#764ABC",
+        link: "https://redux.js.org/",
+      },
+      {
+        name: "StyledComponents",
+        color: "#DB7093",
+        link: "https://styled-components.com/",
+      },
+      {
+        name: "MaterialUI",
+        color: "#0081CB",
+        link: "https://material-ui.com/",
+      },
+    ],
     github: "https://github.com/ST4R20RD/tesla-clone",
     live: "https://tesla-clone-gnestrelado.netlify.app/",
   },
@@ -55,7 +107,23 @@ export const PROJECTS: Array<{
     subTitle: "Clone of Whatsapp App Clone to test my skills",
     description:
       "I have taken on the challenge of creating a responsive web app that replicates the functionality of the popular messaging app, WhatsApp. This project aims to test and showcase my skills in front-end development, specifically in the area of creating responsive web apps. The web app will be designed to work seamlessly on all devices, including desktop computers, laptops, tablets, and smartphones. The user can Log in with Google. The app will include some of the key features of WhatsApp, such as messaging and group chats. It will be built using the latest front-end development technologies and best practices to ensure fast loading times, user-friendly navigation, and accessibility to all users. This project will also be an opportunity for me to demonstrate my ability to replicate a complex app and my understanding of the features and functionalities of the app, and to learn more about firebase.",
-    techs: ["ReactJS", "Firebase", "MaterialUI"],
+    techs: [
+      {
+        name: "ReactJS",
+        color: "#61DAFB",
+        link: "https://reactjs.org/",
+      },
+      {
+        name: "Firebase",
+        color: "#FFCB2B",
+        link: "https://firebase.google.com/",
+      },
+      {
+        name: "MaterialUI",
+        color: "#0081CB",
+        link: "https://material-ui.com/",
+      },
+    ],
     github: "https://github.com/ST4R20RD/whatsapp-clone",
     live: "https://whatsgood-gnestrelado.netlify.app/",
   },
@@ -68,13 +136,41 @@ export const PROJECTS: Array<{
     description:
       "Teaming up for our final course project, my colleague and I, both Front End Developers, aim to build a responsive website for anime enthusiasts. It offers the latest anime updates, synopses, trailers, reviews, and social interaction. The site ensures seamless browsing across all devices, prioritizing user-friendliness, speed, and accessibility. We'll also optimize it for search engines to increase visibility. This project showcases our skills in creating a niche-focused, feature-rich anime platform.",
     techs: [
-      "ReactJS",
-      "SCSS",
-      "Axios",
-      "React-router-dom",
-      "Socket.io",
-      "Google-Login",
-      "Recaptcha",
+      {
+        name: "ReactJS",
+        color: "#61DAFB",
+        link: "https://reactjs.org/",
+      },
+      {
+        name: "SCSS",
+        color: "#CC6699",
+        link: "https://sass-lang.com/",
+      },
+      {
+        name: "Axios",
+        color: "#0078D4",
+        link: "https://axios-http.com/",
+      },
+      {
+        name: "React-router-dom",
+        color: "#CA4245",
+        link: "https://reactrouter.com/web/guides/quick-start",
+      },
+      {
+        name: "Socket.io",
+        color: "#010101",
+        link: "https://socket.io/",
+      },
+      {
+        name: "Google-Login",
+        color: "#4285F4",
+        link: "https://developers.google.com/identity/sign-in/web/sign-in",
+      },
+      {
+        name: "Recaptcha",
+        color: "#4285F4",
+        link: "https://developers.google.com/recaptcha",
+      },
     ],
     github: "https://github.com/RaAlMer/Nani-frontend",
     live: "https://nani-app.netlify.app/",
