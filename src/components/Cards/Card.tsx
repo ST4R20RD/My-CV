@@ -35,35 +35,38 @@ export function Card({
 }: CardProps) {
   const [showMoreDesc, setShowMoreDesc] = useState<boolean>(false);
   const { lightMode } = useContext(ThemeContext);
+  const sliceTheFirstPhrase = description.slice(0, description.indexOf(".") + 1);
   return (
     <Container index={index} lightMode={lightMode}>
       <SideBox>
-        <Image src={image} />
+        <a href={live} target="_blank" rel="noreferrer">
+          <Image src={image} />
+        </a>
       </SideBox>
       <Wrapper>
-        <h2>{name}</h2>
-        <Techs>
-          {techs.map((tech, index) => {
-            return <Tech key={index}>{tech}</Tech>;
-          })}
-        </Techs>
-        <p>{subTitle}</p>
-        {warning && <Warning>{warning}</Warning>}
         <CenterBox>
-          <DescriptionBox>
+          <h2>{name}</h2>
+          <Techs>
+            {techs.map((tech, index) => {
+              return <Tech key={index}>{tech}</Tech>;
+            })}
+          </Techs>
+          <p>{subTitle}</p>
+          {warning && <Warning>{warning}</Warning>}
+          <DescriptionBox showMoreDesc={showMoreDesc}>
             <Description>
               {description.length > 350 ? (
-                <span>{!showMoreDesc ? description.slice(0, 349) + "..." : description}</span>
+                <span>{!showMoreDesc ? sliceTheFirstPhrase : description}</span>
               ) : (
                 description
               )}
             </Description>
             <DescriptionButton onClick={() => setShowMoreDesc(!showMoreDesc)}>
-              {!showMoreDesc ? "more" : "less"}
+              {!showMoreDesc ? "Read more" : "less"}
             </DescriptionButton>
           </DescriptionBox>
-          <Counter startTime={new Date(dateSince)} isFinished={isFinished} />
         </CenterBox>
+        <Counter startTime={new Date(dateSince)} isFinished={isFinished} />
       </Wrapper>
       <Links>
         <a href={github} target="_blank" rel="noreferrer">
@@ -98,8 +101,12 @@ const Tech = styled.p`
   color: gray;
 `;
 
-const DescriptionBox = styled.div`
-  height: 145px;
+interface DescriptionBoxProps {
+  showMoreDesc: boolean;
+}
+
+const DescriptionBox = styled.div<DescriptionBoxProps>`
+  height: 220px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -167,15 +174,15 @@ const Container = styled.div<ContainerProps>`
 const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
+  justify-content: space-between;
   height: 100%;
   padding: 1rem;
+  & > * {
+    margin: 10px 0;
+  }
   @media (max-width: 980px) {
     h2 {
       font-size: 5vw;
-    }
-    & > * {
-      margin: 10px 0;
     }
   }
 `;
@@ -196,7 +203,6 @@ const CenterBox = styled.div`
   align-items: flex-start;
   max-width: 620px;
   @media (max-width: 980px) {
-    max-width: 200px;
     font-size: calc(5px + min(1vw, 20px));
   }
 `;
