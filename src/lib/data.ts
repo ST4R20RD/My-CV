@@ -115,7 +115,7 @@ export const PROJECTS: Array<{
       },
       {
         name: "Firebase",
-        color: "#FFCB2B",
+        color: "#FFA40D",
         link: "https://firebase.google.com/",
       },
       {
@@ -158,7 +158,7 @@ export const PROJECTS: Array<{
       },
       {
         name: "Socket.io",
-        color: "#010101",
+        color: "#25C2A0",
         link: "https://socket.io/",
       },
       {
