@@ -85,6 +85,73 @@ type ContainerProps = {
   lightMode: boolean;
 };
 
+const Container = styled.div<ContainerProps>`
+  ${({ lightMode }) => (lightMode ? darkThemeStyles : lightThemeStyles)}
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 900px;
+  border-radius: 10px;
+  @media (min-width: 980px) {
+    flex-direction: ${({ index }) => (index % 2 === 0 ? "row" : "row-reverse")};
+    height: 50vh;
+  }
+  @media (max-width: 980px) {
+    align-items: flex-start;
+    max-width: 600px;
+    width: 65vw;
+  }
+`;
+
+const SideBox = styled.div`
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+  max-width: 180px;
+  @media (max-width: 980px) {
+    padding: 0;
+  }
+`;
+
+const Image = styled.img`
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 10px;
+  @media (max-width: 980px) {
+    width: 65vw;
+    height: 110px;
+    max-width: 600px;
+    object-position: 50% -0%;
+  }
+`;
+
+const Wrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  padding: 1rem;
+  & > * {
+    margin: 10px 0;
+  }
+  @media (max-width: 980px) {
+    h2 {
+      font-size: 5vw;
+    }
+  }
+`;
+
+const CenterBox = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  max-width: 620px;
+  @media (max-width: 980px) {
+    font-size: calc(5px + min(1vw, 20px));
+  }
+`;
+
 const Techs = styled.div`
   display: flex;
   justify-content: center;
@@ -101,11 +168,14 @@ const Tech = styled.p`
   color: gray;
 `;
 
-interface DescriptionBoxProps {
-  showMoreDesc: boolean;
-}
+const Warning = styled.p`
+  color: #c20000;
+  font-size: 0.8rem;
+`;
 
-const DescriptionBox = styled.div<DescriptionBoxProps>`
+const DescriptionBox = styled.div<{
+  showMoreDesc: boolean;
+}>`
   height: 220px;
   display: flex;
   flex-direction: column;
@@ -153,73 +223,6 @@ const darkThemeStyles = css`
   background: linear-gradient(180deg, rgba(141, 141, 141, 0) 0%, rgba(141, 141, 141, 0.2) 100%);
 `;
 
-const Container = styled.div<ContainerProps>`
-  ${({ lightMode }) => (lightMode ? darkThemeStyles : lightThemeStyles)}
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  max-width: 900px;
-  border-radius: 10px;
-  @media (min-width: 980px) {
-    flex-direction: ${({ index }) => (index % 2 === 0 ? "row" : "row-reverse")};
-    height: 50vh;
-  }
-  @media (max-width: 980px) {
-    align-items: flex-start;
-    max-width: 600px;
-    width: 65vw;
-  }
-`;
-
-const Wrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  height: 100%;
-  padding: 1rem;
-  & > * {
-    margin: 10px 0;
-  }
-  @media (max-width: 980px) {
-    h2 {
-      font-size: 5vw;
-    }
-  }
-`;
-
-const SideBox = styled.div`
-  display: flex;
-  flex-direction: column;
-  padding: 1rem;
-  max-width: 180px;
-  @media (max-width: 980px) {
-    padding: 0;
-  }
-`;
-
-const CenterBox = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  max-width: 620px;
-  @media (max-width: 980px) {
-    font-size: calc(5px + min(1vw, 20px));
-  }
-`;
-
-const Image = styled.img`
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  border-radius: 10px;
-  @media (max-width: 980px) {
-    width: 65vw;
-    height: 110px;
-    max-width: 600px;
-    object-position: 50% -0%;
-  }
-`;
-
 const Links = styled.div`
   display: flex;
   justify-content: space-around;
@@ -231,9 +234,4 @@ const Links = styled.div`
   @media (min-width: 980px) {
     flex-direction: column;
   }
-`;
-
-const Warning = styled.p`
-  color: #c20000;
-  font-size: 0.8rem;
 `;
