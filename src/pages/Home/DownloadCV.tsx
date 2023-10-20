@@ -1,7 +1,9 @@
-import styled, { css, keyframes } from "styled-components";
+import styled from "styled-components";
 import { useContext } from "react";
 import { ThemeContext } from "../../context/ThemeContext";
 import { AiFillFilePdf } from "react-icons/ai";
+import { darkThemeStyles, lightThemeStyles } from "./ThemeStyles";
+import { slideInBottom } from "./animations";
 
 export function DownloadCV() {
   const { lightMode } = useContext(ThemeContext);
@@ -17,25 +19,6 @@ export function DownloadCV() {
     </Button>
   );
 }
-
-const lightThemeStyles = css`
-  background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.85) 100%);
-`;
-
-const darkThemeStyles = css`
-  background: linear-gradient(180deg, rgba(141, 141, 141, 0) 0%, rgba(141, 141, 141, 0.2) 100%);
-`;
-
-const slideInBottom = keyframes`
-  0% {
-    transform: translateY(1000px);
-    opacity: 0;
-  }
-  100% {
-    transform: translateY(0);
-    opacity: 1;
-  }
-`;
 
 const Button = styled.a<{ lightMode: boolean }>`
   ${({ lightMode }) => (lightMode ? darkThemeStyles : lightThemeStyles)}

@@ -1,17 +1,18 @@
 import { useNavigate } from "react-router-dom";
-import styled, { css } from "styled-components";
+import styled from "styled-components";
 import { DownloadCV } from "./DownloadCV";
 import { useContext } from "react";
 import { ThemeContext } from "../../context/ThemeContext";
 import {
-  bounceInTop,
   flipInHorBottom,
   puffOutCenter,
   slideInBottom,
   slideInLeft,
   slideInRight,
   swirlInFwd,
+  trackingInContract,
 } from "./animations";
+import { darkThemeStyles, lightThemeStyles } from "./ThemeStyles";
 
 const LINKLIST = ["Projects", "About", "Contact"];
 
@@ -74,7 +75,7 @@ const Presentation = styled.div`
 `;
 
 const Name = styled.h1`
-  animation: ${bounceInTop} 0.6s cubic-bezier(0.23, 1, 0.32, 1) 0.5s both;
+  animation: ${trackingInContract} 0.8s cubic-bezier(0.215, 0.61, 0.355, 1) 0.5s both;
 `;
 
 const JobPosition = styled.div`
@@ -114,17 +115,12 @@ const Navigation = styled.div`
   }
 `;
 
-const lightThemeStyles = css`
-  background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.85) 100%);
-`;
-
-const darkThemeStyles = css`
-  background: linear-gradient(180deg, rgba(141, 141, 141, 0) 0%, rgba(141, 141, 141, 0.2) 100%);
-`;
-
 const NavLink = styled.a<{ lightMode: boolean }>`
   ${({ lightMode }) => (lightMode ? darkThemeStyles : lightThemeStyles)};
-  padding: 10px 30px;
-  border-radius: 30px;
+  padding: 6px 30px;
+  border-radius: 20px;
   margin: 5px;
+  :hover {
+    cursor: pointer;
+  }
 `;

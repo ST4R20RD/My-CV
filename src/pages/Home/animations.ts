@@ -11,43 +11,6 @@ const swirlInFwd = keyframes`
   }
 `;
 
-const bounceInTop = keyframes`
-  0% {
-    transform: translateY(-500px);
-    animation-timing-function: ease-in;
-    opacity: 0;
-  }
-  38% {
-    transform: translateY(0);
-    animation-timing-function: ease-out;
-    opacity: 1;
-  }
-  55% {
-    transform: translateY(-65px);
-    animation-timing-function: ease-in;
-  }
-  72% {
-    transform: translateY(0);
-    animation-timing-function: ease-out;
-  }
-  81% {
-    transform: translateY(-28px);
-    animation-timing-function: ease-in;
-  }
-  90% {
-    transform: translateY(0);
-    animation-timing-function: ease-out;
-  }
-  95% {
-    transform: translateY(-8px);
-    animation-timing-function: ease-in;
-  }
-  100% {
-    transform: translateY(0);
-    animation-timing-function: ease-out;
-  }
-`;
-
 const flipInHorBottom = keyframes`
   0% {
     transform: rotateX(80deg);
@@ -105,12 +68,26 @@ const puffOutCenter = keyframes`
   }
 `;
 
+const trackingInContract = keyframes`
+  0% {
+    letter-spacing: 1em;
+    opacity: 0;
+  }
+  40% {
+    opacity: 0.6;
+  }
+  100% {
+    letter-spacing: normal;
+    opacity: 1;
+  }
+`;
+
 export {
   swirlInFwd,
-  bounceInTop,
   flipInHorBottom,
   slideInLeft,
   slideInBottom,
   slideInRight,
   puffOutCenter,
+  trackingInContract,
 };
