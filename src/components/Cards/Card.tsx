@@ -182,6 +182,9 @@ const Techs = styled.div`
 
 const Tech = styled.a`
   color: gray;
+  :hover {
+    text-decoration: underline;
+  }
 `;
 
 const Warning = styled.p`
