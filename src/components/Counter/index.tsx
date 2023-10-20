@@ -55,7 +55,9 @@ export function Counter({ startTime, isFinished }: CountUpProps) {
   );
 }
 
-const Container = styled.div``;
+const Container = styled.div`
+  margin-left: -1rem;
+`;
 const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
@@ -65,9 +67,8 @@ const Wrapper = styled.div`
     text-align: center;
     margin: 0 10px;
   }
-  h3 {
-    font-size: small;
-  }
+  font-size: calc(5px + min(1vw, 5px));
+
   @media (min-width: 805px) {
     flex-direction: row;
   }

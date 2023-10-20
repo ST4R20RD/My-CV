@@ -143,7 +143,8 @@ const Wrapper = styled.div`
   flex-direction: column;
   justify-content: space-between;
   height: 100%;
-  padding: 1rem;
+  width: calc(100% - 2rem);
+  margin: 1rem;
   & > * {
     margin: 10px 0;
   }
@@ -159,6 +160,9 @@ const CenterBox = styled.div`
   flex-direction: column;
   align-items: flex-start;
   max-width: 620px;
+  & > * {
+    margin: 7px 0;
+  }
   @media (max-width: 980px) {
     font-size: calc(5px + min(1vw, 20px));
   }
@@ -188,11 +192,11 @@ const Warning = styled.p`
 const DescriptionBox = styled.div<{
   showMoreDesc: boolean;
 }>`
-  height: 220px;
+  height: fit-content;
+  max-height: 170px;
   display: flex;
   flex-direction: column;
   justify-content: center;
-
   @media (max-width: 980px) {
     width: 60vw;
     padding-right: 10px;
@@ -219,6 +223,7 @@ const DescriptionButton = styled.button`
   outline: inherit;
   padding: 0 0.5rem;
   color: gray;
+  margin: 6px 0 0 0;
 `;
 
 const lightThemeStyles = css`
