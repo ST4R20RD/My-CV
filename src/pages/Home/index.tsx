@@ -34,7 +34,7 @@ export function Home() {
         <h3>Hi, I am</h3>
         <Name>Gonçalo</Name>
         <JobPosition>
-          <h3>Junior Web Developer</h3>
+          <h3>Front End Developer</h3>
         </JobPosition>
       </Presentation>
       <Navigation>
