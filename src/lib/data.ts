@@ -7,8 +7,7 @@ export const PROJECTS: Array<{
   description: string;
   techs: Array<{ name: string; color: string; link: string }>;
   github: string;
-  live: string;
-  warning?: string;
+  live?: string;
 }> = [
   {
     dateSince: "2023-09-25T22:38:12",
@@ -173,9 +172,6 @@ export const PROJECTS: Array<{
       },
     ],
     github: "https://github.com/RaAlMer/Nani-frontend",
-    live: "https://nani-app.netlify.app/",
-    warning:
-      "Not currently working because the service where the BE was allocated turned payed in the last few month, I am working on an alternative",
   },
   /* {
     dateSince: "2021-12-14T17:37:19",

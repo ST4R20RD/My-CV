@@ -16,8 +16,7 @@ interface CardProps {
   description: string;
   techs: Array<{ name: string; color: string; link: string }>;
   github: string;
-  live: string;
-  warning?: string;
+  live?: string;
 }
 
 export function Card({
@@ -31,7 +30,6 @@ export function Card({
   techs,
   github,
   live,
-  warning,
 }: CardProps) {
   const [showMoreDesc, setShowMoreDesc] = useState<boolean>(false);
   const { lightMode } = useContext(ThemeContext);
@@ -64,7 +62,6 @@ export function Card({
             {"}"}
           </Techs>
           <p>{subTitle}</p>
-          {warning && <Warning>{warning}</Warning>}
           <DescriptionBox showMoreDesc={showMoreDesc}>
             <Description>
               {description.length > 350 ? (
@@ -84,9 +81,11 @@ export function Card({
         <a href={github} target="_blank" rel="noreferrer">
           <TbBrandGithub className="mx-4" />
         </a>
-        <a href={live} target="_blank" rel="noreferrer">
-          <MdOpenInNew className="mx-4" />
-        </a>
+        {live && (
+          <a href={live} target="_blank" rel="noreferrer">
+            <MdOpenInNew className="mx-4" />
+          </a>
+        )}
       </Links>
     </Container>
   );
@@ -185,11 +184,6 @@ const Tech = styled.a`
   :hover {
     text-decoration: underline;
   }
-`;
-
-const Warning = styled.p`
-  color: #c20000;
-  font-size: 0.8rem;
 `;
 
 const DescriptionBox = styled.div<{
