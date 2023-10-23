@@ -110,7 +110,7 @@ const Container = styled.div<ContainerProps>`
   @media (max-width: 980px) {
     align-items: flex-start;
     max-width: 600px;
-    width: 65vw;
+    width: 80vw;
   }
 `;
 
@@ -130,7 +130,7 @@ const Image = styled.img`
   object-fit: cover;
   border-radius: 10px;
   @media (max-width: 980px) {
-    width: 65vw;
+    width: 80vw;
     height: 110px;
     max-width: 600px;
     object-position: 50% -0%;
@@ -195,7 +195,8 @@ const DescriptionBox = styled.div<{
   flex-direction: column;
   justify-content: center;
   @media (max-width: 980px) {
-    width: 60vw;
+    width: 75vw;
+    max-width: 590px;
     padding-right: 10px;
   }
 `;
