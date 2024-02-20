@@ -1,32 +1,19 @@
-@font-face {
-  font-family: "TAModernTimes";
-  src: url("/public/fonts/tural-alisoy-tamoderntimes/TAModernTimes-RoundedExtLt.otf")
-    format("opentype");
-}
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-body {
-  margin: 0;
-  font-family: "TAModernTimes", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
-  color: white;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
+@import url("https://fonts.cdnfonts.com/css/raleway-5");
+@import url("https://fonts.googleapis.com/css2?family=Anta&display=swap");
 
-h1 {
-  font-family: "TAModernTimes", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
-  font-size: 5rem;
-}
-
-h2 {
-  font-size: 2.5rem;
-}
-
-h1,
-h2,
-h3,
-p {
-  margin: 0;
-  font-weight: 600;
+@layer base {
+  html {
+    font-family: "Raleway", sans-serif;
+  }
+  h1 {
+    font-family: "Anta", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+  }
 }
 
 button {
@@ -36,10 +23,6 @@ button {
 a {
   text-decoration: none;
   color: white;
-}
-
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
 }
 
 ::-webkit-scrollbar {

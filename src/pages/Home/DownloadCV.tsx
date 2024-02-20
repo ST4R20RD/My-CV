@@ -4,24 +4,27 @@ import { ThemeContext } from "../../context/ThemeContext";
 import { AiFillFilePdf } from "react-icons/ai";
 import { darkThemeStyles, lightThemeStyles } from "./ThemeStyles";
 import { slideInBottom } from "./animations";
+import { Button } from "../../components/Button";
 
 export function DownloadCV() {
   const { lightMode } = useContext(ThemeContext);
   return (
-    <Button
+    <Link
       href="https://drive.google.com/file/d/1g5aKBIfFTY7h_cD5XLW4kq9agnZyg3-U/view"
       target="_blank"
       rel="noreferrer"
       lightMode={lightMode}
     >
-      <AiFillFilePdf />
-      Curriculum Vitae
-    </Button>
+      <Button>
+        <AiFillFilePdf />
+        Curriculum Vitae
+      </Button>
+    </Link>
   );
 }
 
-const Button = styled.a<{ lightMode: boolean }>`
-  ${({ lightMode }) => (lightMode ? darkThemeStyles : lightThemeStyles)}
+const Link = styled.a<{ lightMode: boolean }>`
+  /* ${({ lightMode }) => (lightMode ? darkThemeStyles : lightThemeStyles)} */
   color: white;
   border: none;
   padding: 6px 30px;

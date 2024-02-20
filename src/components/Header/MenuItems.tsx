@@ -36,31 +36,17 @@ export default function MenuItems({ isOpen, setIsOpen, isMobile }: Props) {
           />
         );
       })}
-      <Toggle checked={lightMode} onToggle={toggleTheme} />
+      {/* <Toggle checked={lightMode} onToggle={toggleTheme} /> */}
     </Container>
   );
 }
 
 const darkThemeStyles = css`
-  background-image: linear-gradient(
-    to right,
-    rgba(0, 0, 0, 0),
-    #191919e6,
-    #191919,
-    #191919,
-    #191919
-  );
+  background-image: linear-gradient(to right, rgba(0, 0, 0, 0), #191919e6, #191919, #191919, #191919);
 `;
 
 const lightThemeStyles = css`
-  background-image: linear-gradient(
-    to right,
-    rgba(0, 0, 0, 0),
-    #a3a3a3e6,
-    #a3a3a3,
-    #a3a3a3,
-    #a3a3a3
-  );
+  background-image: linear-gradient(to right, rgba(0, 0, 0, 0), #a3a3a3e6, #a3a3a3, #a3a3a3, #a3a3a3);
 `;
 
 const slideInRight = keyframes`

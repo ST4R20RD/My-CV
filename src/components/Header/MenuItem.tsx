@@ -10,7 +10,7 @@ interface Props {
 export default function MenuItem({ to, label, handleOpen }: Props) {
   return (
     <NavLink to={`${to}`} onClick={handleOpen}>
-      {label}
+      <h1>{label}</h1>
     </NavLink>
   );
 }

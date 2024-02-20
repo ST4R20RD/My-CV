@@ -13,6 +13,7 @@ import {
   trackingInContract,
 } from "./animations";
 import { darkThemeStyles, lightThemeStyles } from "./ThemeStyles";
+import { Button } from "../../components/Button";
 
 const LINKLIST = ["Projects", "About", "Contact"];
 
@@ -31,11 +32,20 @@ export function Home() {
   return (
     <Container>
       <Presentation>
-        <h3>Hi, I am</h3>
-        <Name>Gonçalo</Name>
-        <JobPosition>
-          <h3>Front End Developer</h3>
-        </JobPosition>
+        <h3>Hi! My name is</h3>
+        <Name>
+          <h1 className="md:text-7xl text-4xl lg:lg:text-9xl">Gonçalo</h1>
+          <Underline className="w-[12rem] md:w-[25rem] lg:w-[40rem] h-3 relative">
+            {/* Gradient Underline */}
+            <OuterLine className="bg-gradient-to-r from-transparent via-indigo-500 to-transparent h-[2px] w-3/4 blur-sm" />
+            <OuterLine className="bg-gradient-to-r from-transparent via-indigo-500 to-transparent h-px w-3/4" />
+            <InnerLine className="bg-gradient-to-r from-transparent via-sky-500 to-transparent h-[5px] w-1/4 blur-sm" />
+            <InnerLine className="bg-gradient-to-r from-transparent via-sky-500 to-transparent h-px w-1/4" />
+          </Underline>
+          <JobPosition>
+            <h3>Front End Developer</h3>
+          </JobPosition>
+        </Name>
       </Presentation>
       <Navigation>
         {LINKLIST.map((label, index) => {
@@ -45,7 +55,7 @@ export function Home() {
               lightMode={lightMode}
               onClick={() => handleLinkClick(label.toLowerCase(), index)}
             >
-              <h3>{label}</h3>
+              <Button>{label}</Button>
             </NavLink>
           );
         })}
@@ -74,8 +84,58 @@ const Presentation = styled.div`
   }
 `;
 
-const Name = styled.h1`
+const Name = styled.div`
+  display: flex;
+  overflow: hidden;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
   animation: ${trackingInContract} 0.8s cubic-bezier(0.215, 0.61, 0.355, 1) 0.5s both;
+  h1 {
+    position: relative;
+    z-index: 20;
+    text-align: center;
+    color: #ffffff;
+  }
+`;
+
+const Underline = styled.div``;
+
+const OuterLine = styled.div`
+  position: absolute;
+  top: -0.25rem;
+  right: 1.25rem;
+  left: 1.25rem;
+
+  @media (min-width: 768px) {
+    top: -0.5rem;
+    right: 3rem;
+    left: 3rem;
+  }
+  @media (min-width: 1024px) {
+    top: -0.75rem;
+    right: 5rem;
+    left: 5rem;
+  }
+`;
+
+const InnerLine = styled.div`
+  position: absolute;
+  top: -0.25rem;
+  right: 5rem;
+  left: 5rem;
+
+  @media (min-width: 768px) {
+    top: -0.5rem;
+    right: 9rem;
+    left: 9rem;
+  }
+  @media (min-width: 1024px) {
+    top: -0.75rem;
+    right: 15rem;
+    left: 15rem;
+  }
 `;
 
 const JobPosition = styled.div`
@@ -90,20 +150,20 @@ const Navigation = styled.div`
   flex-direction: column;
   align-items: center;
   & > *:nth-child(1) {
-    animation: ${slideInLeft} 0.8s 1.2s both;
+    animation: ${slideInLeft} 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) 1.2s both;
 
     &.clicked {
       animation: ${puffOutCenter} 1s cubic-bezier(0.165, 0.84, 0.44, 1) both;
     }
   }
   & > *:nth-child(2) {
-    animation: ${slideInBottom} 0.8s 1.6s both;
+    animation: ${slideInBottom} 0.8s 1.6s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
     &.clicked {
       animation: ${puffOutCenter} 1s cubic-bezier(0.165, 0.84, 0.44, 1) both;
     }
   }
   & > *:nth-child(3) {
-    animation: ${slideInRight} 0.8s 2s both;
+    animation: ${slideInRight} 0.8s 2s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
     &.clicked {
       animation: ${puffOutCenter} 1s cubic-bezier(0.165, 0.84, 0.44, 1) both;
     }
@@ -116,7 +176,7 @@ const Navigation = styled.div`
 `;
 
 const NavLink = styled.a<{ lightMode: boolean }>`
-  ${({ lightMode }) => (lightMode ? darkThemeStyles : lightThemeStyles)};
+  /* ${({ lightMode }) => (lightMode ? darkThemeStyles : lightThemeStyles)}; */
   padding: 6px 30px;
   border-radius: 20px;
   margin: 5px;

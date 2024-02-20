@@ -8,7 +8,9 @@ export function Header() {
   const { lightMode } = useContext(ThemeContext);
   return (
     <HeaderContainer lightMode={lightMode}>
-      <Logo to="/">Gonçalo Estrelado</Logo>
+      <Logo to="/">
+        <h1>Gonçalo Estrelado</h1>
+      </Logo>
       <Menu />
     </HeaderContainer>
   );
@@ -43,7 +45,7 @@ const HeaderContainer = styled.nav<{ lightMode: boolean }>`
 `;
 
 const Logo = styled(Link)`
-  font-weight: 700;
+  font-weight: 300;
   font-size: 1rem;
   @media (min-width: 542px) {
     font-size: 2rem;
