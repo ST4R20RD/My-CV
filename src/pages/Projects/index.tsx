@@ -1,41 +1,22 @@
 import styled from "styled-components";
 import { Cards } from "../../components";
+import { HeroParallax } from "./components/HeroParallax";
+import { PROJECTS } from "../../lib/data";
+
 export function Projects() {
   return (
-    <Container>
-      <h1>Projects</h1>
-      <TextBox>
-        Welcome to my project page!
-        <br />
-        Here you'll find a selection of my most recent and notable work.
-        <br />
-        Take a look around and let me know what you think.
-        <br />
-      </TextBox>
-      <Cards />
-    </Container>
+    <HeroParallax projects={PROJECTS}>
+      <div className="max-w-7xl relative mx-auto py-20 xl:py-40 px-4 w-full left-0 top-0">
+        <h1 className="text-4xl md:text-7xl font-bold dark:text-white">Projects</h1>
+        <p className="max-w-2xl text-xs md:text-xl mt-8 dark:text-neutral-200">
+          Welcome to my project page!
+          <br />
+          Here you'll find a selection of my most recent and notable work.
+          <br />
+          Take a look around and let me know what you think.
+          <br />
+        </p>
+      </div>
+    </HeroParallax>
   );
 }
-const Container = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 20px;
-  h1 {
-    margin-top: 50px;
-    font-size: calc(10px + min(5vw, 48px));
-  }
-`;
-
-const TextBox = styled.p`
-  text-align: center;
-  max-width: 820px;
-  margin-bottom: 20px;
-  font-size: calc(8px + min(1vw, 24px));
-  /* @media (max-width: 722px) {
-    font-size: smaller;
-  }
-  @media (max-width: 495px) {
-    font-size: x-small;
-  } */
-`;

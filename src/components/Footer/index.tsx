@@ -28,7 +28,7 @@ export function Footer() {
         {pathname === "/contact" ? null : (
           <Links>
             {/* {pathname === "/" ? <Toggle checked={lightMode} onToggle={toggleTheme} /> : null} */}
-            <Link href="https://github.com/ST4R20RD" target="_blank" rel="noreferrer">
+            <Link href="https://github.com/ST4R20RD/My-CV" target="_blank" rel="noreferrer">
               <FiGithub color="white" />
             </Link>
             <Link href="https://www.linkedin.com/in/goncaloestrelado/" target="_blank" rel="noreferrer">

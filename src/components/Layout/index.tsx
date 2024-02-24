@@ -27,6 +27,7 @@ const lightThemeStyles = css`
   background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.4)), url("/images/block-texture-white.gif");
   background-size: 100%;
   background-repeat: repeat;
+  background-attachment: fixed;
 `;
 
 const darkThemeStyles = css`
@@ -36,6 +37,7 @@ const darkThemeStyles = css`
   background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("/images/block-texture.gif");
   background-size: 100%;
   background-repeat: repeat;
+  background-attachment: fixed;
 `;
 
 const OutletWrapper = styled.main`
@@ -55,9 +57,10 @@ const Container = styled.section<{ lightMode: boolean }>`
       color: ${lightMode ? "white" : "black"};
     `}
   }
-  background-repeat: repeat;
-  background-size: cover;
-  height: 100vh;
+  height: 100%;
+  @media (min-width: 768px) {
+    height: 200vh;
+  }
   overflow-y: auto;
   overflow-x: hidden;
 `;
