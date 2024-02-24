@@ -5,56 +5,38 @@ import { TbBrandGithub } from "react-icons/tb";
 import { Counter } from "../Counter";
 import { useContext } from "react";
 import { ThemeContext } from "../../context/ThemeContext";
-
-interface CardProps {
-  index: number;
-  dateSince: string;
-  isFinished: boolean;
-  image: string;
-  name: string;
-  subTitle: string;
-  description: string;
-  techs: Array<{ name: string; color: string; link: string }>;
-  github: string;
-  live?: string;
-}
+import { ProjectType } from "../../utils/types";
 
 export function Card({
-  index,
+  id,
   dateSince,
   isFinished,
-  image,
-  name,
+  thumbnail,
+  title,
   subTitle,
   description,
   techs,
   github,
   live,
-}: CardProps) {
+}: ProjectType) {
   const [showMoreDesc, setShowMoreDesc] = useState<boolean>(false);
   const { lightMode } = useContext(ThemeContext);
   const sliceTheFirstPhrase = description.slice(0, description.indexOf(".") + 1);
   return (
-    <Container index={index} lightMode={lightMode}>
+    <Container index={id} lightMode={lightMode}>
       <SideBox>
         <a href={live} target="_blank" rel="noreferrer">
-          <Image src={image} />
+          <Image src={thumbnail} />
         </a>
       </SideBox>
       <Wrapper>
         <CenterBox>
-          <h2>{name}</h2>
+          <h2>{title}</h2>
           <Techs>
             {"{"}
             {techs.map((tech, index) => {
               return (
-                <Tech
-                  key={index}
-                  style={{ color: tech.color }}
-                  href={tech.link}
-                  target="_blank"
-                  rel="noreferrer"
-                >
+                <Tech key={index} style={{ color: tech.color }} href={tech.link} target="_blank" rel="noreferrer">
                   {tech.name} ,
                 </Tech>
               );
@@ -92,7 +74,7 @@ export function Card({
 }
 
 type ContainerProps = {
-  index: number;
+  index: string;
   lightMode: boolean;
 };
 
@@ -104,7 +86,7 @@ const Container = styled.div<ContainerProps>`
   max-width: 900px;
   border-radius: 10px;
   @media (min-width: 980px) {
-    flex-direction: ${({ index }) => (index % 2 === 0 ? "row" : "row-reverse")};
+    flex-direction: row;
     height: 50vh;
   }
   @media (max-width: 980px) {

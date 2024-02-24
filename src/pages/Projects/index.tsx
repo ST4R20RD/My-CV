@@ -1,5 +1,3 @@
-import styled from "styled-components";
-import { Cards } from "../../components";
 import { HeroParallax } from "./components/HeroParallax";
 import { PROJECTS } from "../../lib/data";
 
