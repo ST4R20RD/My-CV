@@ -144,7 +144,6 @@ const JobPosition = styled.div`
 
 const Navigation = styled.div`
   text-align: center;
-  width: 30%;
   margin-top: 20px;
   display: flex;
   flex-direction: column;
