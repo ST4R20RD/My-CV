@@ -6,26 +6,32 @@ export function About() {
   return (
     <Container>
       <Wrapper>
-        <Box>
-          <ProfilePic src="images/GonçaloEstrelado.JPEG" />
+        <div className="space-y-10">
           <Skills />
-        </Box>
-        <TextBox>
-          <Title>About Me</Title>
-          <EducationCard />
-          <span>
-            I am a highly skilled front-end developer with expertise in full stack development using
-            the MERN stack (MongoDB, Express, React, NodeJS) and a passion for UX/UI design. I have
-            completed a Full Stack Developer Bootcamp with Ironhack, which has given me a solid
-            understanding of web development best practices and the ability to create dynamic and
-            responsive user interfaces. My proficiency in HTML, CSS, and JavaScript allows me to
-            write clean, efficient code that meets the latest web standards. I am well-versed in the
-            latest web development technologies and have a solid understanding of the entire web
-            development process, from design to deployment. I am a team player and have excellent
-            problem-solving and communication skills, and I am always eager to learn and stay
-            current with the latest industry trends and developments.
-          </span>
-        </TextBox>
+          <div className="flex justify-around space-x-10 w-full">
+            <Box className="space-y-5">
+              <ProfilePic src="images/GonçaloEstrelado.JPEG" />
+              <span className="text-xl font-bold">FullStack Developer</span>
+              <EducationCard />
+            </Box>
+            <TextBox>
+              <Title>About Me</Title>
+              <span>
+                I am a highly skilled front-end developer with expertise in full stack development using the MERN stack
+                (MongoDB, Express, React, NodeJS) and a passion for UX/UI design.
+                <br /> <br />
+                I have completed a Full Stack Developer Bootcamp with Ironhack, which has given me a solid understanding
+                of web development best practices and the ability to create dynamic and responsive user interfaces.
+                <br /> <br />
+                My proficiency in HTML, CSS, and JavaScript allows me to write clean, efficient code that meets the
+                latest web standards. I am well-versed in the latest web development technologies and have a solid
+                understanding of the entire web development process, from design to deployment.
+                <br /> <br />I am a team player and have excellent problem-solving and communication skills, and I am
+                always eager to learn and stay current with the latest industry trends and developments.
+              </span>
+            </TextBox>
+          </div>
+        </div>
       </Wrapper>
     </Container>
   );
@@ -59,9 +65,6 @@ const Box = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  & > * {
-    margin: 20px 0;
-  }
 `;
 
 const ProfilePic = styled.img`
@@ -74,7 +77,6 @@ const TextBox = styled.p`
   display: flex;
   flex-direction: column;
   max-width: 500px;
-  margin-bottom: 10rem;
 `;
 
 const Title = styled.h1`

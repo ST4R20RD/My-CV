@@ -1,14 +1,7 @@
 import { FaNodeJs, FaHtml5, FaGithub, FaFigma, FaSass } from "react-icons/fa";
 import { GrReactjs } from "react-icons/gr";
 import { IoLogoCss3, IoLogoJavascript, IoLogoNpm } from "react-icons/io5";
-import {
-  SiFirebase,
-  SiJson,
-  SiMongodb,
-  SiStyledcomponents,
-  SiTailwindcss,
-  SiTypescript,
-} from "react-icons/si";
+import { SiFirebase, SiJson, SiMongodb, SiStyledcomponents, SiTailwindcss, SiTypescript } from "react-icons/si";
 import { DiGit } from "react-icons/di";
 import styled, { css } from "styled-components";
 import { useContext } from "react";
@@ -56,8 +49,6 @@ const Wrapper = styled.div<{ lightMode: boolean }>`
   display: flex;
   justify-content: space-between;
   align-items: stretch;
-  flex-wrap: wrap;
-  max-width: 300px;
   font-size: 3rem;
 
   & > * {
