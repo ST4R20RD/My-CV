@@ -1,5 +1,6 @@
 import { HeroParallax } from "./components/HeroParallax";
 import { PROJECTS } from "../../lib/data";
+import { FaArrowDownLong } from "react-icons/fa6";
 
 export function Projects() {
   return (
@@ -14,6 +15,9 @@ export function Projects() {
           Take a look around and let me know what you think.
           <br />
         </p>
+        <span className="flex justify-center items-center animate-bounce text-4xl mt-4 w-full">
+          Scroll Down <FaArrowDownLong />
+        </span>
       </div>
     </HeroParallax>
   );
