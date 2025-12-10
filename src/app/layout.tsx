@@ -9,7 +9,7 @@ export const metadata: Metadata = {
   title: "Gonçalo Estrelado Portfolio",
   description:
     "Welcome to Gonçalo Estrelado's professional portfolio. Discover my expertise in web development, software engineering, and innovative digital solutions. Explore my projects, skills, and experience in creating modern, user-friendly applications.",
-  keywords: "portfolio, web developer, software engineer, React, TypeScript, frontend development",
+  keywords: "portfolio, weengineer, React, TypeScript, frontend development",
   authors: [{ name: "Gonçalo Estrelado" }],
   openGraph: {
     title: "Gonçalo Estrelado Portfolio",
